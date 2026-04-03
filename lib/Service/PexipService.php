@@ -51,7 +51,8 @@ class PexipService {
 					'name' => $call->getPexipId(),
 					'service_tag' => 'Nextcloud',
 					'allow_guests' => $allowGuests,
-					'view' => 'five_mains_seven_pips', // We choose the layout
+					// We choose the layout
+					'view' => 'five_mains_seven_pips',
 					//'locked' => false
 				],
 			];
