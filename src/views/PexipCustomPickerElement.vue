@@ -16,8 +16,8 @@
 						class="call"
 						tabindex="0"
 						@deleted="onCallDeleted(call.id)"
-						@keydown.native.enter.prevent.stop="$emit('submit', call.link)"
-						@click.native="$emit('submit', call.link)" />
+						@keydown.native.enter.prevent.stop="onSubmit(call.link)"
+						@click.native="onSubmit(call.link)" />
 				</div>
 				<NcEmptyContent v-else
 					:description="t('integration_pexip', 'No meetings found')">
@@ -220,6 +220,7 @@ export default {
 		},
 		onSubmit(url) {
 			this.$emit('submit', url)
+			this.$el.dispatchEvent(new CustomEvent('submit', { detail: url, bubbles: true }))
 		},
 		onCreate() {
 			this.creating = true

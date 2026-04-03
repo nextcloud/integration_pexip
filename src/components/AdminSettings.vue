@@ -5,34 +5,36 @@
 			{{ t('integration_pexip', 'Pexip integration') }}
 		</h2>
 		<div id="pexip-content">
-			<div class="line">
-				<label for="pexip-url">
-					<LinkIcon :size="20" class="icon" />
-					{{ t('integration_pexip', 'Pexip base URL') }}
-				</label>
-				<input id="pexip-url"
-					v-model="state.pexip_url"
-					type="text"
-					:placeholder="t('integration_pexip', 'https://...')"
-					@input="onInput">
-			</div>
-			<p v-if="state.pexip_url" class="settings-hint">
-				<InformationOutlineIcon :size="20" class="icon" />
+			<NcTextField
+				id="pexip-url"
+				v-model="state.pexip_url"
+				class="input"
+				:label="t('integration_openai', 'Pexip base URL')"
+				:placeholder="t('integration_pexip', 'https://...')"
+				:show-trailing-button="!!state.pexip_url"
+				@update:model-value="onInput"
+				@trailing-button-click="state.pexip_url = ''; onInput()">
+				<template #icon>
+					<EarthIcon :size="20" />
+				</template>
+			</NcTextField>
+			<NcNoteCard v-if="state.pexip_url" type="info">
 				{{ meetingLinkHint }}
-			</p>
-			<p class="settings-hint">
-				<InformationOutlineIcon :size="20" class="icon" />
+			</NcNoteCard>
+			<NcNoteCard type="info">
 				{{ configHint }}
-			</p>
+			</NcNoteCard>
 		</div>
 	</div>
 </template>
 
 <script>
-import InformationOutlineIcon from 'vue-material-design-icons/InformationOutline.vue'
-import LinkIcon from 'vue-material-design-icons/Link.vue'
+import EarthIcon from 'vue-material-design-icons/Earth.vue'
 
 import PexipIcon from './icons/PexipIcon.vue'
+
+import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
+import NcTextField from '@nextcloud/vue/components/NcTextField'
 
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
@@ -45,8 +47,9 @@ export default {
 
 	components: {
 		PexipIcon,
-		LinkIcon,
-		InformationOutlineIcon,
+		EarthIcon,
+		NcNoteCard,
+		NcTextField,
 	},
 
 	props: [],
@@ -106,32 +109,13 @@ export default {
 #pexip_prefs {
 	#pexip-content {
 		margin-left: 40px;
+		max-width: 800px;
 	}
 	h2 {
 		display: flex;
 		align-items: center;
-		gap: 8px
-	}
-	h2,
-	.line,
-	.settings-hint {
-		display: flex;
-		align-items: center;
-		margin-top: 12px;
-		.icon {
-			margin-right: 4px;
-		}
-	}
-
-	.line {
-		> label {
-			width: 300px;
-			display: flex;
-			align-items: center;
-		}
-		> input {
-			width: 300px;
-		}
+		gap: 8px;
+		justify-content: start;
 	}
 }
 </style>
