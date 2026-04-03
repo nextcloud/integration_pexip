@@ -36,6 +36,9 @@ use OCP\IDBConnection;
 
 use OCP\AppFramework\Db\DoesNotExistException;
 
+/**
+ * @extends QBMapper<Call>
+ */
 class CallMapper extends QBMapper {
 
 	public function __construct(IDBConnection  $db) {

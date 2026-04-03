@@ -36,7 +36,7 @@ class CleanupCalls extends Command {
 			);
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output) {
+	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$maxAge = $input->getArgument('max_age');
 		$cleanedUp = $this->callMapper->cleanupCalls($maxAge);
 		$output->writeln('Deleted ' . $cleanedUp . ' idle calls');

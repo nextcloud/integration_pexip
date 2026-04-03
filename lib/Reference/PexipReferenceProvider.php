@@ -125,8 +125,8 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 	}
 
 	/**
-	 * @param string $url
-	 * @return array|null
+	 * @param string $url 
+	 * @return null|string 
 	 */
 	private function getPexipId(string $url): ?string {
 		$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
