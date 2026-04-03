@@ -1,7 +1,7 @@
 <template>
 	<div id="pexip_prefs" class="section">
 		<h2>
-			<PexipIcon class="icon" />
+			<PexipIcon />
 			{{ t('integration_pexip', 'Pexip integration') }}
 		</h2>
 		<div id="pexip-content">
@@ -107,6 +107,11 @@ export default {
 	#pexip-content {
 		margin-left: 40px;
 	}
+	h2 {
+		display: flex;
+		align-items: center;
+		gap: 8px
+	}
 	h2,
 	.line,
 	.settings-hint {
@@ -116,10 +121,6 @@ export default {
 		.icon {
 			margin-right: 4px;
 		}
-	}
-
-	h2 .icon {
-		margin-right: 8px;
 	}
 
 	.line {

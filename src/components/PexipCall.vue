@@ -1,24 +1,3 @@
-<!--
-  - @copyright Copyright (c) 2023 Julien Veyssier <julien-nc@posteo.net>
-  -
-  - @author 2023 Julien Veyssier <julien-nc@posteo.net>
-  -
-  - @license GNU AGPL version 3 or any later version
-  -
-  - This program is free software: you can redistribute it and/or modify
-  - it under the terms of the GNU Affero General Public License as
-  - published by the Free Software Foundation, either version 3 of the
-  - License, or (at your option) any later version.
-  -
-  - This program is distributed in the hope that it will be useful,
-  - but WITHOUT ANY WARRANTY; without even the implied warranty of
-  - MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-  - GNU Affero General Public License for more details.
-  -
-  - You should have received a copy of the GNU Affero General Public License
-  - along with this program. If not, see <http://www.gnu.org/licenses/>.
-  -->
-
 <template>
 	<div class="pexip-call">
 		<div v-if="deleted" class="call-info">
@@ -47,7 +26,7 @@
 					target="_blank"
 					class="joinButton"
 					:title="callLink">
-					<NcButton type="primary">
+					<NcButton variant="primary">
 						{{ t('integration_pexip', 'Join meeting') }}
 					</NcButton>
 				</a>
@@ -84,9 +63,9 @@ import DeleteIcon from 'vue-material-design-icons/Delete.vue'
 
 import PexipIcon from './icons/PexipIcon.vue'
 
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
-import NcUserBubble from '@nextcloud/vue/dist/Components/NcUserBubble.js'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
+import NcUserBubble from '@nextcloud/vue/components/NcUserBubble'
 
 import { showError } from '@nextcloud/dialogs'
 import { getCurrentUser } from '@nextcloud/auth'

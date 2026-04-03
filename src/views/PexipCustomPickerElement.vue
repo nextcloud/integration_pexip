@@ -28,7 +28,7 @@
 			</div>
 			<div v-show="!showCreation" class="creation-toggle">
 				<NcButton class="toggle-button"
-					type="tertiary"
+					variant="tertiary"
 					@click="showCreation = true">
 					<template #icon>
 						<PlusIcon />
@@ -43,7 +43,7 @@
 					</label>
 					<NcRichContenteditable
 						id="desc"
-						:value.sync="description"
+						v-model="description"
 						:maxlength="3000"
 						:placeholder="t('integration_pexip', 'Meeting name (max 3000 characters)')"
 						:link-autocomplete="false" />
@@ -51,8 +51,8 @@
 				<div class="line">
 					<NcPasswordField
 						id="pin"
+						v-model="pin"
 						class="pinInput"
-						:value.sync="pin"
 						:maxlength="20"
 						:error="!isHostPinValid"
 						:label="hostPinLabel"
@@ -61,7 +61,7 @@
 				</div>
 				<div class="line">
 					<NcCheckboxRadioSwitch
-						:checked.sync="allow_guests">
+						v-model="allow_guests">
 						{{ t('integration_pexip', 'Allow guests') }}
 					</NcCheckboxRadioSwitch>
 				</div>
@@ -79,19 +79,19 @@
 				</div>
 				<div v-if="allow_guests" class="line">
 					<NcCheckboxRadioSwitch
-						:checked.sync="guests_can_present">
+						v-model="guests_can_present">
 						{{ t('integration_pexip', 'Guests can present') }}
 					</NcCheckboxRadioSwitch>
 				</div>
 				<div class="creation-footer">
 					<NcButton class="cancel-button"
-						type="secondary"
+						variant="secondary"
 						:disabled="creating"
 						@click="showCreation = false">
 						{{ t('integration_pexip', 'Cancel') }}
 					</NcButton>
 					<NcButton class="create-button"
-						type="primary"
+						variant="primary"
 						:disabled="!canCreate"
 						@click="onCreate">
 						<template #icon>
@@ -112,12 +112,12 @@ import PlusIcon from 'vue-material-design-icons/Plus.vue'
 
 import PexipIcon from '../components/icons/PexipIcon.vue'
 
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
-import NcRichContenteditable from '@nextcloud/vue/dist/Components/NcRichContenteditable.js'
-import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
-import NcPasswordField from '@nextcloud/vue/dist/Components/NcPasswordField.js'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
+import NcRichContenteditable from '@nextcloud/vue/components/NcRichContenteditable'
+import NcEmptyContent from '@nextcloud/vue/components/NcEmptyContent'
+import NcPasswordField from '@nextcloud/vue/components/NcPasswordField'
 
 import PexipCall from '../components/PexipCall.vue'
 
