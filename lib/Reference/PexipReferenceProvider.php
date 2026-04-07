@@ -1,57 +1,42 @@
 <?php
+
 /**
- * @copyright Copyright (c) 2023 Julien Veyssier <julien-nc@posteo.net>
- *
- * @author Julien Veyssier <julien-nc@posteo.net>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
 namespace OCA\Pexip\Reference;
 
-use OCP\AppFramework\Db\MultipleObjectsReturnedException;
-use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
-use OCP\Collaboration\Reference\Reference;
 use OCA\Pexip\AppInfo\Application;
 use OCA\Pexip\Service\PexipService;
+use OCP\AppFramework\Db\MultipleObjectsReturnedException;
+use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
 use OCP\Collaboration\Reference\IReference;
+use OCP\Collaboration\Reference\Reference;
 use OCP\DB\Exception;
-use OCP\IConfig;
+use OCP\IAppConfig;
 use OCP\IL10N;
 
 use OCP\IURLGenerator;
 use OCP\IUserManager;
 
-class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
+class PexipReferenceProvider extends ADiscoverableReferenceProvider {
 
 	private const RICH_OBJECT_TYPE = Application::APP_ID . '_call';
 
 	public function __construct(
 		private PexipService $pexipService,
 		private IL10N $l10n,
-		private IConfig $config,
+		private IAppConfig $appConfig,
 		private IURLGenerator $urlGenerator,
-		private IUserManager $userManager
+		private IUserManager $userManager,
 	) {
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string	{
+	public function getId(): string {
 		return 'pexip-call';
 	}
 
@@ -65,7 +50,7 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 	/**
 	 * @inheritDoc
 	 */
-	public function getOrder(): int	{
+	public function getOrder(): int {
 		return 10;
 	}
 
@@ -97,7 +82,7 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 
 			try {
 				$callInfo = $this->pexipService->getPexipCallInfo($pexipId);
-			} catch (MultipleObjectsReturnedException | Exception $e) {
+			} catch (MultipleObjectsReturnedException|Exception $e) {
 				return null;
 			}
 			// obfuscate pins
@@ -126,11 +111,11 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 
 	/**
 	 * @param string $url
-	 * @return array|null
+	 * @return null|string
 	 */
 	private function getPexipId(string $url): ?string {
-		$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
-			$this->urlGenerator->getAbsoluteURL('/apps/' . Application::APP_ID);
+		$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
+		$this->urlGenerator->getAbsoluteURL('/apps/' . Application::APP_ID);
 
 		// link examples:
 		// https://pexip.example/webapp3/m/3jf5wq3hibbqvickir7ysqehfi

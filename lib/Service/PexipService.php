@@ -1,34 +1,29 @@
 <?php
+
 /**
- * Nextcloud - Pexip
- *
- * This file is licensed under the Affero General Public License version 3 or
- * later. See the COPYING file.
- *
- * @author Julien Veyssier
- * @copyright Julien Veyssier 2023
+ * SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
 namespace OCA\Pexip\Service;
 
 use DateTime;
 use Exception;
-use OC\Collaboration\Reference\ReferenceManager;
 use OCA\Pexip\AppInfo\Application;
 use OCA\Pexip\Db\Call;
 use OCA\Pexip\Db\CallMapper;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\MultipleObjectsReturnedException;
-use OCP\IConfig;
+use OCP\Collaboration\Reference\IReferenceManager;
+use OCP\IAppConfig;
 use Throwable;
 
 class PexipService {
 
 	public function __construct(
-		string $appName,
-		private IConfig $config,
-		private ReferenceManager $referenceManager,
-		private CallMapper $callMapper
+		private IAppConfig $appConfig,
+		private IReferenceManager $referenceManager,
+		private CallMapper $callMapper,
 	) {
 	}
 
@@ -42,7 +37,7 @@ class PexipService {
 		try {
 			$call = $this->callMapper->getCallFromPexipId($pexipId);
 			$this->callMapper->touchCall($call->getId());
-			$allowGuests = (bool) $call->getAllowGuests();
+			$allowGuests = (bool)$call->getAllowGuests();
 			$params = [
 				'status' => 'success',
 				'action' => 'continue',
@@ -51,7 +46,8 @@ class PexipService {
 					'name' => $call->getPexipId(),
 					'service_tag' => 'Nextcloud',
 					'allow_guests' => $allowGuests,
-					'view' => 'five_mains_seven_pips', // We choose the layout
+					// We choose the layout
+					'view' => 'five_mains_seven_pips',
 					//'locked' => false
 				],
 			];
@@ -65,7 +61,7 @@ class PexipService {
 				if ($call->getGuestPin()) {
 					$params['result']['guest_pin'] = $call->getGuestPin();
 				}
-				$params['result']['guests_can_present'] = (bool) $call->getGuestsCanPresent();
+				$params['result']['guests_can_present'] = (bool)$call->getGuestsCanPresent();
 			}
 			return $params;
 		} catch (DoesNotExistException $e) {
@@ -83,7 +79,7 @@ class PexipService {
 	 * @throws \OCP\DB\Exception
 	 */
 	public function getUserCalls(string $userId): array {
-		$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
+		$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 		return array_map(function (Call $call) use ($pexipUrl) {
 			$callArray = $call->jsonSerialize();
 			$callArray['link'] = $this->getCallLink($pexipUrl, $call->getPexipId());
@@ -110,7 +106,7 @@ class PexipService {
 	 * @return array
 	 */
 	public function createCall(string $userId, string $description, string $pin = '', string $guestPin = '',
-							   bool $guestsCanPresent = true, bool $allowGuests = true): array {
+		bool $guestsCanPresent = true, bool $allowGuests = true): array {
 		$ts = (new DateTime())->getTimestamp();
 		$pexipId = md5($description . $userId . $ts);
 		try {
@@ -119,10 +115,10 @@ class PexipService {
 				$guestsCanPresent, $allowGuests
 			);
 			$callArray = $call->jsonSerialize();
-			$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
+			$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 			$callArray['link'] = $this->getCallLink($pexipUrl, $call->getPexipId());
 			return $callArray;
-		} catch (Exception | Throwable $e) {
+		} catch (Exception|Throwable $e) {
 			return [
 				'error' => $e->getMessage(),
 			];
@@ -154,7 +150,7 @@ class PexipService {
 			$call = $this->callMapper->getCallFromPexipId($pexipId);
 			$this->callMapper->touchCall($call->getId());
 			$callArray = $call->jsonSerialize();
-			$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
+			$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 			$callArray['link'] = $this->getCallLink($pexipUrl, $call->getPexipId());
 			return $callArray;
 		} catch (DoesNotExistException $e) {

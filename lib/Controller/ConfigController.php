@@ -1,12 +1,8 @@
 <?php
+
 /**
- * Nextcloud - Pexip
- *
- * This file is licensed under the Affero General Public License version 3 or
- * later. See the COPYING file.
- *
- * @author Julien Veyssier <julien-nc@posteo.net>
- * @copyright Julien Veyssier 2023
+ * SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
 namespace OCA\Pexip\Controller;
@@ -14,7 +10,7 @@ namespace OCA\Pexip\Controller;
 use OCA\Pexip\AppInfo\Application;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\DataResponse;
-use OCP\IConfig;
+use OCP\IAppConfig;
 use OCP\IRequest;
 use OCP\PreConditionNotMetException;
 
@@ -23,8 +19,8 @@ class ConfigController extends Controller {
 	public function __construct(
 		string $appName,
 		IRequest $request,
-		private IConfig  $config,
-		private ?string  $userId
+		private IAppConfig $appConfig,
+		private ?string $userId,
 	) {
 		parent::__construct($appName, $request);
 	}
@@ -40,7 +36,7 @@ class ConfigController extends Controller {
 	 */
 	public function setConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
-			$this->config->setUserValue($this->userId, Application::APP_ID, $key, $value);
+			$this->appConfig->setValueString($this->userId, Application::APP_ID, $key, $value);
 		}
 		return new DataResponse(1);
 	}
@@ -53,7 +49,7 @@ class ConfigController extends Controller {
 	 */
 	public function setAdminConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
-			$this->config->setAppValue(Application::APP_ID, $key, $value);
+			$this->appConfig->setValueString(Application::APP_ID, $key, $value);
 		}
 		return new DataResponse(1);
 	}

@@ -1,44 +1,31 @@
 <?php
 
 declare(strict_types=1);
+
 /**
- * @copyright Copyright (c) 2023, Julien Veyssier <julien-nc@posteo.net>
- *
- * @author Julien Veyssier <julien-nc@posteo.net>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
 namespace OCA\Pexip\Db;
 
 use DateTime;
 use OCA\Pexip\AppInfo\Application;
+use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\Entity;
 use OCP\AppFramework\Db\MultipleObjectsReturnedException;
 use OCP\AppFramework\Db\QBMapper;
 use OCP\DB\Exception;
 use OCP\DB\QueryBuilder\IQueryBuilder;
+
 use OCP\IDBConnection;
 
-use OCP\AppFramework\Db\DoesNotExistException;
-
+/**
+ * @extends QBMapper<Call>
+ */
 class CallMapper extends QBMapper {
 
-	public function __construct(IDBConnection  $db) {
+	public function __construct(IDBConnection $db) {
 		parent::__construct($db, 'pexip_call', Call::class);
 	}
 
@@ -132,7 +119,7 @@ class CallMapper extends QBMapper {
 	 * @throws Exception
 	 */
 	public function createCall(string $userId, string $pexipId, string $description, string $pin, string $guestPin,
-							   bool $guestsCanPresent, bool $allowGuests, ?int $lastUsedTimestamp = null): Call {
+		bool $guestsCanPresent, bool $allowGuests, ?int $lastUsedTimestamp = null): Call {
 		$call = new Call();
 		$call->setUserId($userId);
 		$call->setPexipId($pexipId);
@@ -160,7 +147,7 @@ class CallMapper extends QBMapper {
 	public function touchCall(int $id) {
 		try {
 			$call = $this->getCall($id);
-		} catch (DoesNotExistException | MultipleObjectsReturnedException $e) {
+		} catch (DoesNotExistException|MultipleObjectsReturnedException $e) {
 			return null;
 		}
 		$ts = (new DateTime())->getTimestamp();
@@ -176,7 +163,7 @@ class CallMapper extends QBMapper {
 	public function deleteCall(int $id): ?Call {
 		try {
 			$call = $this->getCall($id);
-		} catch (DoesNotExistException | MultipleObjectsReturnedException $e) {
+		} catch (DoesNotExistException|MultipleObjectsReturnedException $e) {
 			return null;
 		}
 		return $this->delete($call);
@@ -191,7 +178,7 @@ class CallMapper extends QBMapper {
 	public function deleteUserCallFromPexipId(string $userId, string $pexipId): ?Call {
 		try {
 			$call = $this->getUserCallFromPexipId($userId, $pexipId);
-		} catch (DoesNotExistException | MultipleObjectsReturnedException $e) {
+		} catch (DoesNotExistException|MultipleObjectsReturnedException $e) {
 			return null;
 		}
 		return $this->delete($call);

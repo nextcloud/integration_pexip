@@ -1,13 +1,8 @@
 <?php
 
 /**
- * Nextcloud - Pexip
- *
- * This file is licensed under the Affero General Public License version 3 or
- * later. See the COPYING file.
- *
- * @author Julien Veyssier <julien-nc@posteo.net>
- * @copyright Julien Veyssier 2023
+ * SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
 namespace OCA\Pexip\Command;
@@ -21,7 +16,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CleanupCalls extends Command {
 
-	public function __construct(private CallMapper $callMapper) {
+	public function __construct(
+		private CallMapper $callMapper,
+	) {
 		parent::__construct();
 	}
 
@@ -36,7 +33,7 @@ class CleanupCalls extends Command {
 			);
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output) {
+	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$maxAge = $input->getArgument('max_age');
 		$cleanedUp = $this->callMapper->cleanupCalls($maxAge);
 		$output->writeln('Deleted ' . $cleanedUp . ' idle calls');

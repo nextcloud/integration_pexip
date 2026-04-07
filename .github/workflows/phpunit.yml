@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2022-2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
 name: PHPUnit
 
 on:
@@ -33,7 +35,7 @@ jobs:
       # do not stop on another job's failure
       fail-fast: false
       matrix:
-        php-versions: ['8.1']
+        php-versions: ['8.2']
         databases: ['sqlite']
         server-versions: ['master']
 
