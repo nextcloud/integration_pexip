@@ -72,8 +72,8 @@
 				<div v-if="allow_guests" class="line">
 					<NcPasswordField
 						id="pin"
+						v-model="guest_pin"
 						class="pinInput"
-						:value.sync="guest_pin"
 						:maxlength="20"
 						:disabled="!allow_guests"
 						:error="!isGuestPinValid"
@@ -276,6 +276,7 @@ export default {
 	padding: 12px 16px 16px 16px;
 
 	h2 {
+		margin-top: 0;
 		display: flex;
 		align-items: center;
 	}

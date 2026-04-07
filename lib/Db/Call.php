@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace OCA\Pexip\Db;
 
 use OCP\AppFramework\Db\Entity;
+use OCP\DB\Types;
 
 /**
  * @method string getUserId()
@@ -49,28 +50,28 @@ class Call extends Entity implements \JsonSerializable {
 	protected $lastUsedTimestamp;
 
 	public function __construct() {
-		$this->addType('user_id', 'string');
-		$this->addType('pexip_id', 'string');
-		$this->addType('description', 'string');
-		$this->addType('pin', 'string');
-		$this->addType('guest_pin', 'string');
-		$this->addType('guests_can_present', 'boolean');
-		$this->addType('allow_guests', 'boolean');
-		$this->addType('last_used_timestamp', 'integer');
+		$this->addType('userId', Types::STRING);
+		$this->addType('pexipId', Types::STRING);
+		$this->addType('description', Types::STRING);
+		$this->addType('pin', Types::STRING);
+		$this->addType('guestPin', Types::STRING);
+		$this->addType('guestsCanPresent', Types::BOOLEAN);
+		$this->addType('allowGuests', Types::BOOLEAN);
+		$this->addType('lastUsedTimestamp', Types::INTEGER);
 	}
 
 	#[\ReturnTypeWillChange]
 	public function jsonSerialize() {
 		return [
-			'id' => $this->id,
-			'user_id' => $this->userId,
-			'pexip_id' => $this->pexipId,
-			'description' => $this->description,
-			'pin' => $this->pin,
-			'guest_pin' => $this->guestPin,
-			'guests_can_present' => (bool)$this->guestsCanPresent,
-			'allow_guests' => (bool)$this->allowGuests,
-			'last_used_timestamp' => $this->lastUsedTimestamp,
+			'id' => $this->getId(),
+			'user_id' => $this->getUserId(),
+			'pexip_id' => $this->getPexipId(),
+			'description' => $this->getDescription(),
+			'pin' => $this->getPin(),
+			'guest_pin' => $this->getGuestPin(),
+			'guests_can_present' => $this->getGuestsCanPresent(),
+			'allow_guests' => $this->getAllowGuests(),
+			'last_used_timestamp' => $this->getLastUsedTimestamp(),
 		];
 	}
 }
