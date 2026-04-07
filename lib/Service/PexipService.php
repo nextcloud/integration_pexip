@@ -4,23 +4,20 @@ namespace OCA\Pexip\Service;
 
 use DateTime;
 use Exception;
-use OC\Collaboration\Reference\ReferenceManager;
 use OCA\Pexip\AppInfo\Application;
 use OCA\Pexip\Db\Call;
 use OCA\Pexip\Db\CallMapper;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\MultipleObjectsReturnedException;
+use OCP\Collaboration\Reference\IReferenceManager;
 use OCP\IAppConfig;
-use OCP\IConfig;
 use Throwable;
 
 class PexipService {
 
 	public function __construct(
-		string $appName,
-		private IConfig $config,
 		private IAppConfig $appConfig,
-		private ReferenceManager $referenceManager,
+		private IReferenceManager $referenceManager,
 		private CallMapper $callMapper,
 	) {
 	}
