@@ -84,8 +84,8 @@ class Call extends Entity implements \JsonSerializable {
 			'description' => $this->description,
 			'pin' => $this->pin,
 			'guest_pin' => $this->guestPin,
-			'guests_can_present' => (bool) $this->guestsCanPresent,
-			'allow_guests' => (bool) $this->allowGuests,
+			'guests_can_present' => (bool)$this->guestsCanPresent,
+			'allow_guests' => (bool)$this->allowGuests,
 			'last_used_timestamp' => $this->lastUsedTimestamp,
 		];
 	}

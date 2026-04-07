@@ -1,8 +1,9 @@
 <?php
+
 namespace OCA\Pexip\Settings;
 
-use OCP\IURLGenerator;
 use OCP\IL10N;
+use OCP\IURLGenerator;
 use OCP\Settings\IIconSection;
 
 class AdminSection implements IIconSection {
@@ -11,7 +12,7 @@ class AdminSection implements IIconSection {
 	private IL10N $l;
 
 	public function __construct(IURLGenerator $urlGenerator,
-								IL10N         $l) {
+		IL10N $l) {
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
 	}
@@ -37,8 +38,8 @@ class AdminSection implements IIconSection {
 
 	/**
 	 * @return int whether the form should be rather on the top or bottom of
-	 * the settings navigation. The sections are arranged in ascending order of
-	 * the priority values. It is required to return a value between 0 and 99.
+	 *             the settings navigation. The sections are arranged in ascending order of
+	 *             the priority values. It is required to return a value between 0 and 99.
 	 */
 	public function getPriority(): int {
 		return 80;

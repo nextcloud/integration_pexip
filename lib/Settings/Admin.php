@@ -1,12 +1,12 @@
 <?php
+
 namespace OCA\Pexip\Settings;
 
+use OCA\Pexip\AppInfo\Application;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
-use OCP\IConfig;
-use OCP\Settings\ISettings;
-use OCA\Pexip\AppInfo\Application;
 use OCP\IAppConfig;
+use OCP\Settings\ISettings;
 
 class Admin implements ISettings {
 

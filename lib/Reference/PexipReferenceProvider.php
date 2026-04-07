@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) 2023 Julien Veyssier <julien-nc@posteo.net>
  *
@@ -22,12 +23,12 @@
 
 namespace OCA\Pexip\Reference;
 
-use OCP\AppFramework\Db\MultipleObjectsReturnedException;
-use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
-use OCP\Collaboration\Reference\Reference;
 use OCA\Pexip\AppInfo\Application;
 use OCA\Pexip\Service\PexipService;
+use OCP\AppFramework\Db\MultipleObjectsReturnedException;
+use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
 use OCP\Collaboration\Reference\IReference;
+use OCP\Collaboration\Reference\Reference;
 use OCP\DB\Exception;
 use OCP\IAppConfig;
 use OCP\IL10N;
@@ -35,7 +36,7 @@ use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\IUserManager;
 
-class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
+class PexipReferenceProvider extends ADiscoverableReferenceProvider {
 
 	private const RICH_OBJECT_TYPE = Application::APP_ID . '_call';
 
@@ -44,14 +45,14 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 		private IL10N $l10n,
 		private IAppConfig $appConfig,
 		private IURLGenerator $urlGenerator,
-		private IUserManager $userManager
+		private IUserManager $userManager,
 	) {
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string	{
+	public function getId(): string {
 		return 'pexip-call';
 	}
 
@@ -65,7 +66,7 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 	/**
 	 * @inheritDoc
 	 */
-	public function getOrder(): int	{
+	public function getOrder(): int {
 		return 10;
 	}
 
@@ -97,7 +98,7 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 
 			try {
 				$callInfo = $this->pexipService->getPexipCallInfo($pexipId);
-			} catch (MultipleObjectsReturnedException | Exception $e) {
+			} catch (MultipleObjectsReturnedException|Exception $e) {
 				return null;
 			}
 			// obfuscate pins
@@ -125,12 +126,12 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 	}
 
 	/**
-	 * @param string $url 
-	 * @return null|string 
+	 * @param string $url
+	 * @return null|string
 	 */
 	private function getPexipId(string $url): ?string {
 		$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
-			$this->urlGenerator->getAbsoluteURL('/apps/' . Application::APP_ID);
+		$this->urlGenerator->getAbsoluteURL('/apps/' . Application::APP_ID);
 
 		// link examples:
 		// https://pexip.example/webapp3/m/3jf5wq3hibbqvickir7ysqehfi

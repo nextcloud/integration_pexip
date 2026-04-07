@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Nextcloud - Pexip
  *
@@ -30,7 +31,7 @@ class PexipService {
 		private IConfig $config,
 		private IAppConfig $appConfig,
 		private ReferenceManager $referenceManager,
-		private CallMapper $callMapper
+		private CallMapper $callMapper,
 	) {
 	}
 
@@ -44,7 +45,7 @@ class PexipService {
 		try {
 			$call = $this->callMapper->getCallFromPexipId($pexipId);
 			$this->callMapper->touchCall($call->getId());
-			$allowGuests = (bool) $call->getAllowGuests();
+			$allowGuests = (bool)$call->getAllowGuests();
 			$params = [
 				'status' => 'success',
 				'action' => 'continue',
@@ -68,7 +69,7 @@ class PexipService {
 				if ($call->getGuestPin()) {
 					$params['result']['guest_pin'] = $call->getGuestPin();
 				}
-				$params['result']['guests_can_present'] = (bool) $call->getGuestsCanPresent();
+				$params['result']['guests_can_present'] = (bool)$call->getGuestsCanPresent();
 			}
 			return $params;
 		} catch (DoesNotExistException $e) {
@@ -113,7 +114,7 @@ class PexipService {
 	 * @return array
 	 */
 	public function createCall(string $userId, string $description, string $pin = '', string $guestPin = '',
-							   bool $guestsCanPresent = true, bool $allowGuests = true): array {
+		bool $guestsCanPresent = true, bool $allowGuests = true): array {
 		$ts = (new DateTime())->getTimestamp();
 		$pexipId = md5($description . $userId . $ts);
 		try {
@@ -125,7 +126,7 @@ class PexipService {
 			$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 			$callArray['link'] = $this->getCallLink($pexipUrl, $call->getPexipId());
 			return $callArray;
-		} catch (Exception | Throwable $e) {
+		} catch (Exception|Throwable $e) {
 			return [
 				'error' => $e->getMessage(),
 			];

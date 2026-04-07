@@ -35,7 +35,7 @@ class CleanupCalls extends TimedJob {
 	public function __construct(
 		ITimeFactory $time,
 		private CallMapper $callMapper,
-		private LoggerInterface $logger
+		private LoggerInterface $logger,
 	) {
 		parent::__construct($time);
 		$this->setInterval(60 * 60 * 24);

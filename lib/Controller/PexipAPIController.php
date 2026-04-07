@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Nextcloud - Pexip
  *
@@ -11,14 +12,14 @@
 
 namespace OCA\Pexip\Controller;
 
+use OCA\Pexip\Service\PexipService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Db\MultipleObjectsReturnedException;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\DB\Exception;
-use OCP\IRequest;
 
-use OCA\Pexip\Service\PexipService;
+use OCP\IRequest;
 
 class PexipAPIController extends Controller {
 
@@ -26,7 +27,7 @@ class PexipAPIController extends Controller {
 		string $appName,
 		IRequest $request,
 		private PexipService $pexipService,
-		private ?string $userId
+		private ?string $userId,
 	) {
 		parent::__construct($appName, $request);
 	}
@@ -85,7 +86,7 @@ class PexipAPIController extends Controller {
 	 * @return DataResponse
 	 */
 	public function createCall(string $description, string $pin = '', string $guestPin = '',
-							   bool $guestsCanPresent = true, bool $allowGuests = true): DataResponse {
+		bool $guestsCanPresent = true, bool $allowGuests = true): DataResponse {
 		$response = $this->pexipService->createCall($this->userId, $description, $pin, $guestPin, $guestsCanPresent, $allowGuests);
 		if (isset($response['error'])) {
 			return new DataResponse($response, Http::STATUS_BAD_REQUEST);

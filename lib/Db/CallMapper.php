@@ -27,21 +27,21 @@ namespace OCA\Pexip\Db;
 
 use DateTime;
 use OCA\Pexip\AppInfo\Application;
+use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\Entity;
 use OCP\AppFramework\Db\MultipleObjectsReturnedException;
 use OCP\AppFramework\Db\QBMapper;
 use OCP\DB\Exception;
 use OCP\DB\QueryBuilder\IQueryBuilder;
-use OCP\IDBConnection;
 
-use OCP\AppFramework\Db\DoesNotExistException;
+use OCP\IDBConnection;
 
 /**
  * @extends QBMapper<Call>
  */
 class CallMapper extends QBMapper {
 
-	public function __construct(IDBConnection  $db) {
+	public function __construct(IDBConnection $db) {
 		parent::__construct($db, 'pexip_call', Call::class);
 	}
 
@@ -135,7 +135,7 @@ class CallMapper extends QBMapper {
 	 * @throws Exception
 	 */
 	public function createCall(string $userId, string $pexipId, string $description, string $pin, string $guestPin,
-							   bool $guestsCanPresent, bool $allowGuests, ?int $lastUsedTimestamp = null): Call {
+		bool $guestsCanPresent, bool $allowGuests, ?int $lastUsedTimestamp = null): Call {
 		$call = new Call();
 		$call->setUserId($userId);
 		$call->setPexipId($pexipId);
@@ -163,7 +163,7 @@ class CallMapper extends QBMapper {
 	public function touchCall(int $id) {
 		try {
 			$call = $this->getCall($id);
-		} catch (DoesNotExistException | MultipleObjectsReturnedException $e) {
+		} catch (DoesNotExistException|MultipleObjectsReturnedException $e) {
 			return null;
 		}
 		$ts = (new DateTime())->getTimestamp();
@@ -179,7 +179,7 @@ class CallMapper extends QBMapper {
 	public function deleteCall(int $id): ?Call {
 		try {
 			$call = $this->getCall($id);
-		} catch (DoesNotExistException | MultipleObjectsReturnedException $e) {
+		} catch (DoesNotExistException|MultipleObjectsReturnedException $e) {
 			return null;
 		}
 		return $this->delete($call);
@@ -194,7 +194,7 @@ class CallMapper extends QBMapper {
 	public function deleteUserCallFromPexipId(string $userId, string $pexipId): ?Call {
 		try {
 			$call = $this->getUserCallFromPexipId($userId, $pexipId);
-		} catch (DoesNotExistException | MultipleObjectsReturnedException $e) {
+		} catch (DoesNotExistException|MultipleObjectsReturnedException $e) {
 			return null;
 		}
 		return $this->delete($call);

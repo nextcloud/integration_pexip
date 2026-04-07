@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Nextcloud - Pexip
  *
@@ -11,11 +12,11 @@ namespace OCA\Pexip\AppInfo;
 
 use OCA\Pexip\Listener\PexipReferenceListener;
 use OCA\Pexip\Reference\PexipReferenceProvider;
-use OCP\Collaboration\Reference\RenderReferenceEvent;
 use OCP\AppFramework\App;
-use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\Collaboration\Reference\RenderReferenceEvent;
 use OCP\IAppConfig;
 
 class Application extends App implements IBootstrap {
@@ -44,4 +45,3 @@ class Application extends App implements IBootstrap {
 	public function boot(IBootContext $context): void {
 	}
 }
-
