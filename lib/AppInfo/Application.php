@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Nextcloud - Pexip
- *
- *
- * @author Julien Veyssier <julien-nc@posteo.net>
- * @copyright Julien Veyssier 2023
- */
-
 namespace OCA\Pexip\AppInfo;
 
 use OCA\Pexip\Listener\PexipReferenceListener;
