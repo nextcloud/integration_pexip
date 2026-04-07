@@ -10,6 +10,33 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 2.0.0 – 2026-04-07
+
+### Added
+
+- Migrate to Vue 3
+- Modernize admin settings, fix picker submit
+- Add psalm CI
+- Add more CI actions
+
+### Changed
+
+- Use IAppConfig instead of AppConfig
+- Use IReferenceManager instead of ReferenceManager
+- Use PHP 8.2 in phpunit action
+- Add reuse headers and fix REUSE compliance
+- Remove copyright doc blocks
+
+### Fixed
+
+- Fix psalm issues
+- Fix entity attr names, fix guest pin ui field
+
+### Other
+
+- Add licenses, ignore vendor dirs for l10n
+- Add pr-feedback action
+
 ## 1.0.4 – 2023-10-03
 
 ### Changed
