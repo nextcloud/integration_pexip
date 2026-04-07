@@ -19,6 +19,7 @@ use OCA\Pexip\Db\Call;
 use OCA\Pexip\Db\CallMapper;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\MultipleObjectsReturnedException;
+use OCP\IAppConfig;
 use OCP\IConfig;
 use Throwable;
 
@@ -27,6 +28,7 @@ class PexipService {
 	public function __construct(
 		string $appName,
 		private IConfig $config,
+		private IAppConfig $appConfig,
 		private ReferenceManager $referenceManager,
 		private CallMapper $callMapper
 	) {
@@ -84,7 +86,7 @@ class PexipService {
 	 * @throws \OCP\DB\Exception
 	 */
 	public function getUserCalls(string $userId): array {
-		$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
+		$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 		return array_map(function (Call $call) use ($pexipUrl) {
 			$callArray = $call->jsonSerialize();
 			$callArray['link'] = $this->getCallLink($pexipUrl, $call->getPexipId());
@@ -120,7 +122,7 @@ class PexipService {
 				$guestsCanPresent, $allowGuests
 			);
 			$callArray = $call->jsonSerialize();
-			$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
+			$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 			$callArray['link'] = $this->getCallLink($pexipUrl, $call->getPexipId());
 			return $callArray;
 		} catch (Exception | Throwable $e) {
@@ -155,7 +157,7 @@ class PexipService {
 			$call = $this->callMapper->getCallFromPexipId($pexipId);
 			$this->callMapper->touchCall($call->getId());
 			$callArray = $call->jsonSerialize();
-			$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
+			$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 			$callArray['link'] = $this->getCallLink($pexipUrl, $call->getPexipId());
 			return $callArray;
 		} catch (DoesNotExistException $e) {

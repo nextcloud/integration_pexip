@@ -14,7 +14,7 @@ namespace OCA\Pexip\Controller;
 use OCA\Pexip\AppInfo\Application;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\DataResponse;
-use OCP\IConfig;
+use OCP\IAppConfig;
 use OCP\IRequest;
 use OCP\PreConditionNotMetException;
 
@@ -23,7 +23,7 @@ class ConfigController extends Controller {
 	public function __construct(
 		string $appName,
 		IRequest $request,
-		private IConfig  $config,
+		private IAppConfig $appConfig,
 		private ?string  $userId
 	) {
 		parent::__construct($appName, $request);
@@ -40,7 +40,7 @@ class ConfigController extends Controller {
 	 */
 	public function setConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
-			$this->config->setUserValue($this->userId, Application::APP_ID, $key, $value);
+			$this->appConfig->setValueString($this->userId, Application::APP_ID, $key, $value);
 		}
 		return new DataResponse(1);
 	}
@@ -53,7 +53,7 @@ class ConfigController extends Controller {
 	 */
 	public function setAdminConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
-			$this->config->setAppValue(Application::APP_ID, $key, $value);
+			$this->appConfig->setValueString(Application::APP_ID, $key, $value);
 		}
 		return new DataResponse(1);
 	}

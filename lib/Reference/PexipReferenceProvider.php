@@ -29,7 +29,7 @@ use OCA\Pexip\AppInfo\Application;
 use OCA\Pexip\Service\PexipService;
 use OCP\Collaboration\Reference\IReference;
 use OCP\DB\Exception;
-use OCP\IConfig;
+use OCP\IAppConfig;
 use OCP\IL10N;
 
 use OCP\IURLGenerator;
@@ -42,7 +42,7 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 	public function __construct(
 		private PexipService $pexipService,
 		private IL10N $l10n,
-		private IConfig $config,
+		private IAppConfig $appConfig,
 		private IURLGenerator $urlGenerator,
 		private IUserManager $userManager
 	) {
@@ -129,7 +129,7 @@ class PexipReferenceProvider extends ADiscoverableReferenceProvider  {
 	 * @return null|string 
 	 */
 	private function getPexipId(string $url): ?string {
-		$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
+		$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 			$this->urlGenerator->getAbsoluteURL('/apps/' . Application::APP_ID);
 
 		// link examples:

@@ -6,23 +6,21 @@ use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
 use OCP\Settings\ISettings;
 use OCA\Pexip\AppInfo\Application;
+use OCP\IAppConfig;
 
 class Admin implements ISettings {
 
-	private IConfig $config;
-	private IInitialState $initialStateService;
-
-	public function __construct(IConfig $config,
-								IInitialState $initialStateService) {
-		$this->config = $config;
-		$this->initialStateService = $initialStateService;
+	public function __construct(
+		private IAppConfig $appConfig,
+		private IInitialState $initialStateService,
+	) {
 	}
 
 	/**
 	 * @return TemplateResponse
 	 */
 	public function getForm(): TemplateResponse {
-		$pexipUrl = $this->config->getAppValue(Application::APP_ID, 'pexip_url');
+		$pexipUrl = $this->appConfig->getValueString(Application::APP_ID, 'pexip_url');
 
 		$adminConfig = [
 			'pexip_url' => $pexipUrl,
