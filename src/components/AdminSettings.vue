@@ -14,7 +14,7 @@
 				v-model="state.pexip_url"
 				class="input"
 				:label="t('integration_openai', 'Pexip base URL')"
-				:placeholder="t('integration_pexip', 'https://...')"
+				:placeholder="t('integration_pexip', 'https://…')"
 				:show-trailing-button="!!state.pexip_url"
 				@update:model-value="onInput"
 				@trailing-button-click="state.pexip_url = ''; onInput()">
