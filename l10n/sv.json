@@ -1,0 +1,10 @@
+{ "translations": {
+    "Connected accounts" : "Anslutna konton",
+    "https://…" : "https://…",
+    "You" : "Du",
+    "Name" : "Namn",
+    "Allow guests" : "Tillåt gäster",
+    "Cancel" : "Avbryt",
+    "Create" : "Skapa"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

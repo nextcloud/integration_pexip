@@ -1,0 +1,9 @@
+{ "translations": {
+    "Connected accounts" : "Kapcsolt fiókok",
+    "https://…" : "https://…",
+    "Name" : "Név",
+    "Allow guests" : "Vendégek engedélyezése",
+    "Cancel" : "Mégse",
+    "Create" : "Létrehozás"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

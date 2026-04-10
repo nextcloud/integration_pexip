@@ -1,0 +1,10 @@
+{ "translations": {
+    "Connected accounts" : "계정 연결됨",
+    "https://…" : "https://…",
+    "You" : "당신",
+    "Name" : "이름",
+    "Allow guests" : "손님 초대",
+    "Cancel" : "취소",
+    "Create" : "생성"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

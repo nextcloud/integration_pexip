@@ -1,0 +1,8 @@
+{ "translations": {
+    "Connected accounts" : "Contas conectadas",
+    "https://…" : "https://…",
+    "Name" : "Nome",
+    "Allow guests" : "Permitir convidados",
+    "Cancel" : "Cancelar"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
