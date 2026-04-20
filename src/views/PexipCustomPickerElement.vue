@@ -167,7 +167,7 @@ export default {
 			allow_guests: false,
 			guest_pin: '',
 			guests_can_present: false,
-			pinHelper: t('integration_pexip', 'Between 4 and 20 digits optionally endind with one or more #'),
+			pinHelper: t('integration_pexip', 'Between 4 and 20 digits optionally followed by one or more #'),
 		}
 	},
 
