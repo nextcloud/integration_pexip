@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "Prepojené účty",
     "https://…" : "https://...",
-    "You" : "Vy",
     "Name" : "Názov",
     "Cancel" : "Zrušiť",
     "Create" : "Vytvoriť"

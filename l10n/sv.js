@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "Anslutna konton",
     "https://…" : "https://…",
-    "You" : "Du",
     "Name" : "Namn",
     "Allow guests" : "Tillåt gäster",
     "Cancel" : "Avbryt",

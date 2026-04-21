@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "Povezani računi",
     "https://…" : "https://…",
-    "You" : "Jaz",
     "Name" : "Ime podpisnika",
     "Allow guests" : "Dovoli povezave z gosti",
     "Cancel" : "Prekliči",

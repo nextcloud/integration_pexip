@@ -2,7 +2,6 @@ OC.L10N.register(
     "integration_pexip",
     {
     "https://…" : "https://…",
-    "You" : "Você",
     "Name" : "Nome",
     "Cancel" : "Cancelar",
     "Create" : "Criar"

@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "Підключені облікові записи",
     "https://…" : "https://…",
-    "You" : "Ви",
     "Name" : "Ім'я",
     "Allow guests" : "Дозволити гостей",
     "Cancel" : "Скасувати",

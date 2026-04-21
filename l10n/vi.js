@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "Đã kết nối tài khoản",
     "https://…" : "https://…",
-    "You" : "Bạn",
     "Name" : "Tên",
     "Allow guests" : "Cho phép khách",
     "Cancel" : "Cancel",

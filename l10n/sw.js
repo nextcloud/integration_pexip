@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "Akaunti zilizounganishwa",
     "https://…" : "https://…",
-    "You" : "Wewe",
     "Name" : "Jina",
     "Allow guests" : "Ruhusu wageni",
     "Cancel" : "Ghairi",

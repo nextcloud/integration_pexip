@@ -1,5 +1,6 @@
 { "translations": {
     "Connected accounts" : "Yhdistetyt tilit",
-    "https://…" : "https://…"
+    "https://…" : "https://…",
+    "Create" : "Luo"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

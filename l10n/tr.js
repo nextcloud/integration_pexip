@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "Bağlı hesaplar",
     "https://…" : "https://…",
-    "You" : "Siz",
     "Name" : "Ad",
     "Cancel" : "İptal",
     "Create" : "Oluştur"

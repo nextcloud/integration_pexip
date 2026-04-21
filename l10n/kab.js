@@ -1,7 +1,6 @@
 OC.L10N.register(
     "integration_pexip",
     {
-    "You" : "Kemm·čč",
     "Name" : "Isem",
     "Allow guests" : "Sireg inebgawen",
     "Cancel" : "Semmet",

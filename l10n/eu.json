@@ -1,6 +1,7 @@
 { "translations": {
     "Connected accounts" : "Konektatutako kontuak",
     "https://…" : "https://…",
-    "Allow guests" : "Gonbidatuak baimendu"
+    "Allow guests" : "Gonbidatuak baimendu",
+    "Create" : "Sortu"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

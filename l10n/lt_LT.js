@@ -3,8 +3,7 @@ OC.L10N.register(
     {
     "Connected accounts" : "Prijungtos paskyros",
     "https://…" : "https://…",
-    "You" : "Jūs",
-    "Name" : "Pavadinimas",
+    "Name" : "Vardas",
     "Allow guests" : "Leisti svečius",
     "Cancel" : "Atsisakyti",
     "Create" : "Sukurti"

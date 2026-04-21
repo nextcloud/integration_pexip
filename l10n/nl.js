@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "Verbonden accounts",
     "https://…" : "https://…",
-    "You" : "Jou",
     "Name" : "Naam",
     "Allow guests" : "Laat gasten toe",
     "Cancel" : "Annuleer",

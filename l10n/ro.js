@@ -2,7 +2,6 @@ OC.L10N.register(
     "integration_pexip",
     {
     "Connected accounts" : "Conturile conectate",
-    "You" : "Tu",
     "Name" : "Nume",
     "Cancel" : "Cancel",
     "Create" : "Crează"

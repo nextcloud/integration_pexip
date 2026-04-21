@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "已連結的帳號",
     "https://…" : "https://…",
-    "You" : "您",
     "Name" : "名稱",
     "Allow guests" : "允許訪客",
     "Cancel" : "取消",

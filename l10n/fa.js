@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Connected accounts" : "حساب‌های متصل",
     "https://…" : "https://…",
-    "Allow guests" : "اجازه میهمانان"
+    "Allow guests" : "اجازه میهمانان",
+    "Create" : "ایجاد"
 },
 "nplurals=2; plural=(n > 1);");

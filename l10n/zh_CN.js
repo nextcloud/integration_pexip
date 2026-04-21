@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Connected accounts" : "已关联的账号",
     "https://…" : "https://…",
-    "You" : "您",
     "Name" : "名称",
     "Allow guests" : "允许访客",
     "Cancel" : "取消",
