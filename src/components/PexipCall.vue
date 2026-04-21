@@ -38,11 +38,7 @@
 			<div class="content">
 				<div v-if="showCreator"
 					class="creator">
-					{{ t('integration_pexip', 'Pexip meeting created by') }}&nbsp;
-					<NcUserBubble
-						:primary="true"
-						:user="call.user_id"
-						:display-name="creatorDisplayName" />
+					{{ createdByLabel }}
 				</div>
 				<div class="details">
 					{{ detailsText }}
@@ -69,7 +65,6 @@ import PexipIcon from './icons/PexipIcon.vue'
 
 import NcButton from '@nextcloud/vue/components/NcButton'
 import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
-import NcUserBubble from '@nextcloud/vue/components/NcUserBubble'
 
 import { showError } from '@nextcloud/dialogs'
 import { getCurrentUser } from '@nextcloud/auth'
@@ -84,7 +79,6 @@ export default {
 		DeleteIcon,
 		NcButton,
 		NcLoadingIcon,
-		NcUserBubble,
 	},
 
 	props: {
@@ -173,10 +167,14 @@ export default {
 			}
 			return elements.join(' · ')
 		},
-		creatorDisplayName() {
-			return getCurrentUser()?.uid === this.call.user_id
-				? t('integration_pexip', 'You')
-				: this.call.user_name
+		createdByLabel() {
+			if (getCurrentUser()?.uid === this.call.user_id) {
+				return t('integration_pexip', 'Pexip meeting created by you')
+			}
+
+			return t('integration_pexip', 'Pexip meeting created by {displayname}', {
+				displayname: this.call.user_name,
+			})
 		},
 		showDeleteButton() {
 			return this.deleteable && this.canDelete && !this.deleted
