@@ -1,7 +1,9 @@
 { "translations": {
     "Connected accounts" : "Konektatutako kontuak",
     "https://…" : "https://…",
+    "Name" : "Izena",
     "Allow guests" : "Gonbidatuak baimendu",
+    "Cancel" : "Cancel",
     "Create" : "Sortu"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

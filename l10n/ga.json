@@ -1,7 +1,9 @@
 { "translations": {
     "Connected accounts" : "Cuntais nasctha",
     "https://…" : "https://…",
+    "Name" : "Ainm",
     "Allow guests" : "Ceadaigh aíonna",
+    "Cancel" : "Cealaigh",
     "Create" : "Cruthaigh"
 },"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"
 }

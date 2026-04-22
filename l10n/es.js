@@ -4,7 +4,6 @@ OC.L10N.register(
     "Connected accounts" : "Cuentas conectadas",
     "https://…" : "https://…",
     "Name" : "Nombre",
-    "Allow guests" : "Permitir invitados",
     "Cancel" : "Cancelar",
     "Create" : "Crear"
 },

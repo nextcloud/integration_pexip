@@ -1,0 +1,9 @@
+{ "translations": {
+    "Connected accounts" : "Свързани профили",
+    "https://…" : "https://…",
+    "Name" : "Име",
+    "Allow guests" : "Позволяване на гости",
+    "Cancel" : "Cancel",
+    "Create" : "Създаване"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

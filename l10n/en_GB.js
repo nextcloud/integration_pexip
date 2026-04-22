@@ -1,11 +1,10 @@
 OC.L10N.register(
     "integration_pexip",
     {
-    "Connected accounts" : "Konektatutako kontuak",
+    "Connected accounts" : "Connected accounts",
     "https://…" : "https://…",
-    "Name" : "Izena",
-    "Allow guests" : "Gonbidatuak baimendu",
+    "Name" : "Surname",
     "Cancel" : "Cancel",
-    "Create" : "Sortu"
+    "Create" : "Create"
 },
 "nplurals=2; plural=(n != 1);");

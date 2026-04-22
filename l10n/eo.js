@@ -1,10 +1,8 @@
 OC.L10N.register(
     "integration_pexip",
     {
-    "Connected accounts" : "Yhdistetyt tilit",
     "https://…" : "https://…",
-    "Name" : "Nimi",
-    "Cancel" : "Peruuta",
-    "Create" : "Luo"
+    "Name" : "Nomo",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

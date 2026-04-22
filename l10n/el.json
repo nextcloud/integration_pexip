@@ -1,0 +1,9 @@
+{ "translations": {
+    "Connected accounts" : "Συνδεδεμένοι λογαριασμοί",
+    "https://…" : "https://…",
+    "Name" : "Όνομα",
+    "Allow guests" : "Επιτρέψτε τους επισκέπτες",
+    "Cancel" : "Ακύρωση",
+    "Create" : "Δημιουργία"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

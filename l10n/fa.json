@@ -1,7 +1,9 @@
 { "translations": {
     "Connected accounts" : "حساب‌های متصل",
     "https://…" : "https://…",
+    "Name" : "نام",
     "Allow guests" : "اجازه میهمانان",
+    "Cancel" : "انصراف",
     "Create" : "ایجاد"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

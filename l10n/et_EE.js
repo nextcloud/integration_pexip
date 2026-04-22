@@ -1,7 +1,11 @@
 OC.L10N.register(
     "integration_pexip",
     {
+    "Connected accounts" : "Ühendatud kasutajakontod",
     "https://…" : "https://…",
-    "Allow guests" : "Luba külalised"
+    "Name" : "Nimi",
+    "Allow guests" : "Luba külalised",
+    "Cancel" : "Katkesta",
+    "Create" : "Lisa"
 },
 "nplurals=2; plural=(n != 1);");
