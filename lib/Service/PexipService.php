@@ -108,7 +108,7 @@ class PexipService {
 	public function createCall(string $userId, string $description, string $pin = '', string $guestPin = '',
 		bool $guestsCanPresent = true, bool $allowGuests = true): array {
 		$ts = (new DateTime())->getTimestamp();
-		$pexipId = md5($description . $userId . $ts);
+		$pexipId = sha1($description . $userId . $ts);
 		try {
 			$call = $this->callMapper->createCall(
 				$userId, $pexipId, $description, $pin, $guestPin,
