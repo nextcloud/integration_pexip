@@ -1,7 +1,11 @@
 OC.L10N.register(
     "integration_pexip",
     {
+    "Pexip meetings" : "Réunions Pexip",
     "Connected accounts" : "Comptes connectés",
+    "Pexip integration" : "Intégration Pexip",
+    "Integration of Pexip video call service" : "Intégration du service d’appel vidéo Pexip",
+    "Pexip admin options saved" : "Options Pexip administrateur sauvegardés",
     "https://…" : "https://…",
     "Name" : "Nom",
     "Cancel" : "Annuler",
