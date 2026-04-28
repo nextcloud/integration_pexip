@@ -5,7 +5,6 @@ OC.L10N.register(
     "Connected accounts" : "Ulangan akkauntlar",
     "Pexip integration" : "Pexip integratsiyasi",
     "Integration of Pexip video call service" : "Pexip video qo'ng'iroq xizmatining integratsiyasi",
-    "The Pexip integration app implements a Smart Picker provider to create\nPexip meetings and immediately get a meeting link.\n\nMore information in the [project's README](https://github.com/julien-nc/integration_pexip/#readme)." : "Pexip integratsiya ilovasi Pexip uchrashuvlarini yaratish va darhol uchrashuv havolasini olish uchun Smart Picker provayderini joriy qiladi.\n\nQo'shimcha ma'lumot [loyihaning README] (https://github.com/julien-nc/integration_pexip/#readme) da.",
     "On the Pexip side, the \"policy server URI\" must be set to {policyUri}" : "Pexip tomonida, \"policy server URI\" {policyUri} ga o'rnatilgan bo'lishi kerak.",
     "Nextcloud will generate meeting links like {linkExample}" : "Nextcloud {linkExample} kabi uchrashuv havolalarini yaratadi",
     "Pexip admin options saved" : "Pexip administrator sozlamalari saqlandi",

@@ -3,7 +3,6 @@
     "Connected accounts" : "Connected accounts",
     "Pexip integration" : "Pexip integration",
     "Integration of Pexip video call service" : "Integration of Pexip video call service",
-    "The Pexip integration app implements a Smart Picker provider to create\nPexip meetings and immediately get a meeting link.\n\nMore information in the [project's README](https://github.com/julien-nc/integration_pexip/#readme)." : "The Pexip integration app implements a Smart Picker provider to create\nPexip meetings and immediately get a meeting link.\n\nMore information in the [project's README](https://github.com/julien-nc/integration_pexip/#readme).",
     "On the Pexip side, the \"policy server URI\" must be set to {policyUri}" : "On the Pexip side, the \"policy server URI\" must be set to {policyUri}",
     "Nextcloud will generate meeting links like {linkExample}" : "Nextcloud will generate meeting links like {linkExample}",
     "Pexip admin options saved" : "Pexip admin options saved",

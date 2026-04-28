@@ -5,7 +5,6 @@ OC.L10N.register(
     "Connected accounts" : "已連線的賬號",
     "Pexip integration" : "Pexip 整合",
     "Integration of Pexip video call service" : "Pexip 視訊通話服務整合",
-    "The Pexip integration app implements a Smart Picker provider to create\nPexip meetings and immediately get a meeting link.\n\nMore information in the [project's README](https://github.com/julien-nc/integration_pexip/#readme)." : "Pexip 整合應用程式提供 Smart Picker 功能，讓你建立 Pexip 會議並即時取得會議連結。\n\n更多資訊請參閱 [project's README](https://github.com/julien-nc/integration_pexip/#readme)。",
     "On the Pexip side, the \"policy server URI\" must be set to {policyUri}" : "在 Pexip 端，「policy server URI」必須設定為 {policyUri}",
     "Nextcloud will generate meeting links like {linkExample}" : "Nextcloud 會產生類似 {linkExample} 的會議連結",
     "Pexip admin options saved" : "Pexip 管理員設定已儲存",

@@ -3,7 +3,6 @@
     "Connected accounts" : "Cuntais nasctha",
     "Pexip integration" : "Comhtháthú Pexip",
     "Integration of Pexip video call service" : "Comhtháthú seirbhís glaonna físe Pexip",
-    "The Pexip integration app implements a Smart Picker provider to create\nPexip meetings and immediately get a meeting link.\n\nMore information in the [project's README](https://github.com/julien-nc/integration_pexip/#readme)." : "Cuireann an aip chomhtháthaithe Pexip soláthraí Smart Picker i bhfeidhm chun cruinnithe Pexip a chruthú agus nasc cruinnithe a fháil láithreach.\n\nTuilleadh eolais i [README an tionscadail](https://github.com/julien-nc/integration_pexip/#readme).",
     "On the Pexip side, the \"policy server URI\" must be set to {policyUri}" : "Ar thaobh Pexip, ní mór an \"URI freastalaí beartais\" a shocrú go {policyUri}",
     "Nextcloud will generate meeting links like {linkExample}" : "Ginfidh Nextcloud naisc chruinnithe cosúil le {linkExample}",
     "Pexip admin options saved" : "Roghanna riarthóra Pexip sábháilte",
