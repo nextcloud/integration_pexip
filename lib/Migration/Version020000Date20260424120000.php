@@ -27,21 +27,34 @@ class Version020000Date20260424120000 extends SimpleMigrationStep {
 		/** @var ISchemaWrapper $schema */
 		$schema = $schemaClosure();
 
+		if (!$schema->hasTable('pexip_call')) {
+			return null;
+		}
 		$table = $schema->getTable('pexip_call');
+
+		$modified = false;
 		$column = $table->getColumn('pexip_id');
 		if ($column->getLength() > 750) {
 			$column->setLength(750);
+			$modified = true;
 		}
 
 		$column = $table->getColumn('description');
 		if ($column->getNotnull()) {
 			$column->setNotnull(false);
+			$modified = true;
 		}
 
-		$table->dropIndex('pexip_call_pexip_id');
-		$table->addUniqueIndex(['pexip_id'], 'pexip_call_uniqpexip_id');
+		if ($table->hasIndex('pexip_call_pexip_id')) {
+			$table->dropIndex('pexip_call_pexip_id');
+			$modified = true;
+		}
+		if (!$table->hasUniqueConstraint('pexip_call_uniqpexip_id')) {
+			$table->addUniqueIndex(['pexip_id'], 'pexip_call_uniqpexip_id');
+			$modified = true;
+		}
 
-		return $schema;
+		return $modified ? $schema : null;
 	}
 
 }
