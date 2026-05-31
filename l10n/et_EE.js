@@ -11,6 +11,8 @@ OC.L10N.register(
     "https://…" : "https://…",
     "Guests allowed" : "Külalised on lubatud",
     "No guest access" : "Külaliste ligipääs on piiratud",
+    "Guests can present" : "Külalised võivad esineda",
+    "Guests cannot present" : "Külalised ei või esineda",
     "Pexip meeting created by you" : "Sinu loodud kohtumine Pexipis",
     "Pexip meeting created by {displayname}" : "Kasutaja {displayname} poolt Pexipis loodud kohtumine",
     "Error deleting the Pexip call" : "Viga Pexipi kõne kustutamisel",
