@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_pexip",
     {
+    "Connected accounts" : "Contas conectadas",
     "https://…" : "https://…",
     "Name" : "Nome",
     "Cancel" : "Cancelar",
