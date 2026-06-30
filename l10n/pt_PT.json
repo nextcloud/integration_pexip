@@ -1,7 +1,19 @@
 { "translations": {
+    "Pexip meetings" : "Reuniões Pexip",
     "Connected accounts" : "Contas conectadas",
+    "The Pexip integration app implements a Smart Picker provider to create\nPexip meetings and immediately get a meeting link.\n\nMore information in the [project's README](https://github.com/nextcloud/integration_pexip/#readme)." : "O aplicativo de integração do Pexip utiliza um provedor para o Seletor inteligente para criar reuniões no Pexip e obter imediatamente o link da reunião.\n\nMais informações no [README do projeto](https://github.com/nextcloud/integration_pexip/#readme).",
+    "Nextcloud will generate meeting links like {linkExample}" : "O Nextcloud irá gerar links para reuniões como {linkExample}",
+    "Pexip base URL" : "URL base do Pexip",
     "https://…" : "https://…",
+    "Guests cannot present" : "Convidados não podem apresentar",
+    "Guests pin" : "PIN do convidado",
+    "Host pin set" : "PIN do anfitrião definido",
+    "Pexip meeting created by {displayname}" : "Reunião no Pexip criada por {displayname}",
+    "This Pexip meeting has been deleted" : "Esta reunião do Pexip foi excluída",
+    "Between 4 and 20 digits optionally followed by one or more #" : "Entre 4 e 20 dígitos, opcionalmente seguidos por um ou mais #",
+    "Error creating the Pexip call" : "Erro ao criar a chamada do Pexip",
     "Name" : "Nome",
+    "Meeting name (max 3000 characters)" : "Nome da reunião (máximo de 3000 caracteres)",
     "Cancel" : "Cancelar",
     "Create" : "Criar"
 },"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
