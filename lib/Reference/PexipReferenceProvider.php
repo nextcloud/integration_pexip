@@ -16,7 +16,6 @@ use OCP\Collaboration\Reference\Reference;
 use OCP\DB\Exception;
 use OCP\IAppConfig;
 use OCP\IL10N;
-
 use OCP\IURLGenerator;
 use OCP\IUserManager;
 

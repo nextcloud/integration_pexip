@@ -13,7 +13,6 @@ use OCP\AppFramework\Db\MultipleObjectsReturnedException;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\DB\Exception;
-
 use OCP\IRequest;
 
 class PexipAPIController extends Controller {
