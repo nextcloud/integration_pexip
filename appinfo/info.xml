@@ -26,7 +26,7 @@ More information in the [project's README](https://github.com/nextcloud/integrat
 	<screenshot>https://github.com/nextcloud/integration_pexip/raw/main/img/screenshots/screenshot3.jpg</screenshot>
 	<screenshot>https://github.com/nextcloud/integration_pexip/raw/main/img/screenshots/screenshot4.jpg</screenshot>
 	<dependencies>
-		<nextcloud min-version="33" max-version="35"/>
+		<nextcloud min-version="35" max-version="35"/>
 	</dependencies>
 	<background-jobs>
 		<job>OCA\Pexip\Cron\CleanupCalls</job>
