@@ -10,6 +10,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 3.0.0 – 2026-07-24
+
+### Changed
+
+- Support Nextcloud 35 @julien-nc [#27](https://github.com/nextcloud/integration_pexip/pull/27)
+- Update CI workflows @nickvergessen [#16](https://github.com/nextcloud/integration_pexip/pull/16)
+- Require Node 22 and npm 12, update npm and composer dependencies @julien-nc [#27](https://github.com/nextcloud/integration_pexip/pull/27)
+- Fix app home URL @nickvergessen [#16](https://github.com/nextcloud/integration_pexip/pull/16)
+
+### Fixed
+
+- Fix translation string @nickvergessen @julien-nc @Antreesy [#12](https://github.com/nextcloud/integration_pexip/pull/12)
+- Fix "created by" translation message @nickvergessen [#13](https://github.com/nextcloud/integration_pexip/pull/13)
+- Fix DB compatibility with MySQL and Oracle @nickvergessen [#16](https://github.com/nextcloud/integration_pexip/pull/16)
+- Make new migration rerunnable @nickvergessen [#18](https://github.com/nextcloud/integration_pexip/pull/18)
+
 ## 2.0.2 – 2026-04-08
 
 ### Added

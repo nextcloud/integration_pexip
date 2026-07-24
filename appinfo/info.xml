@@ -11,7 +11,7 @@
 Pexip meetings and immediately get a meeting link.
 
 More information in the [project's README](https://github.com/nextcloud/integration_pexip/#readme).]]></description>
-	<version>2.0.3</version>
+	<version>3.0.0</version>
 	<licence>agpl</licence>
 	<author>Julien Veyssier</author>
 	<namespace>Pexip</namespace>
