@@ -4,6 +4,7 @@ OC.L10N.register(
     "Connected accounts" : "Tilkopla kontoar",
     "Name" : "Namn",
     "Allow guests" : "Tillat gjester",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Create" : "Opprett"
 },
 "nplurals=2; plural=(n != 1);");
