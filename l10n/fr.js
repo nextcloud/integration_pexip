@@ -14,6 +14,8 @@ OC.L10N.register(
     "https://…" : "https://…",
     "Guests allowed" : "Invités autorisés",
     "No guest access" : "Pas d'accès invité",
+    "Guests can present" : "Les invités peuvent présenter",
+    "Guests cannot present" : "Les invités ne peuvent pas présenter",
     "Host pin" : "Code PIN hôte",
     "No host pin" : "Pas de code PIN hôte",
     "Guests pin" : "Code PIN invité",
