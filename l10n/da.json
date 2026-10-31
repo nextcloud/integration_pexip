@@ -30,7 +30,7 @@
     "Join meeting" : "Deltag i mødet",
     "Delete meeting" : "Slet møde",
     "Between 4 and 20 digits optionally followed by one or more #" : "Mellem 4 og 20 cifre, eventuelt efterfulgt af et eller flere #",
-    "Host pin (mandatory if you allow guests)" : "Værtens pinkode (påkrævet, hvis du tillader gæster)",
+    "Host pin (mandatory if you allow guests)" : "Værtens pinkode (obligatorisk, hvis du tillader gæster)",
     "Error getting the Pexip calls" : "Fejl ved hentning af Pexip-opkaldene",
     "Error creating the Pexip call" : "Fejl ved oprettelse af Pexip-opkaldet",
     "No meetings found" : "Der blev ikke fundet nogen møder",
